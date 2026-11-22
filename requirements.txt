@@ -1,0 +1,1 @@
+# No third-party dependencies in the v1.0 baseline.
