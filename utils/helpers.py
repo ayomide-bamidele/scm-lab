@@ -1,10 +1,14 @@
-def highest_score(data):
-    if not data:
-        return None  # max() on an empty sequence raises ValueError
-    return max(d["score"] for d in data)
+"""Utility helpers for score analysis."""
+from __future__ import annotations
+
+Record = dict[str, str | float]
 
 
-def lowest_score(data):
-    if not data:
-        return None
-    return min(d["score"] for d in data)
+def highest_score(data: list[Record]) -> float | None:
+    """Return the highest score, or None if ``data`` is empty."""
+    return max((float(d["score"]) for d in data), default=None)
+
+
+def lowest_score(data: list[Record]) -> float | None:
+    """Return the lowest score, or None if ``data`` is empty."""
+    return min((float(d["score"]) for d in data), default=None)
